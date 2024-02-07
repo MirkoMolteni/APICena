@@ -65,11 +65,15 @@ def main():
         print("Cocktail:")
         print("Nome del cocktail: "+infoCocktail["drinks"][0]["strDrink"])
         print("Categoria: "+infoCocktail["drinks"][0]["strCategory"])
-        print("Istruzioni: \r\n"+infoCocktail["drinks"][0]["strInstructionsIT"])
+        print("Istruzioni: \r\n"+infoCocktail["drinks"][0]["strInstructions"])
         print("Ingredienti:")
         for i in range(1, 16):
-            if infoCocktail["drinks"][0]["strIngredient"+str(i)] != "":
-                print(infoCocktail["drinks"][0]["strIngredient"+str(i)] + " : " + str(infoCocktail["drinks"][0]["strMeasure"+str(i)]))
+            if infoCocktail["drinks"][0]["strIngredient"+str(i)] != None:
+                if infoCocktail["drinks"][0]["strMeasure"+str(i)] == None:
+                    print(infoCocktail["drinks"][0]["strIngredient"+str(i)] + " : q.b.")
+                else:
+                    print(infoCocktail["drinks"][0]["strIngredient"+str(i)] + " : " + str(infoCocktail["drinks"][0]["strMeasure"+str(i)]))
+                
     elif chooseC == "2":
         print("Cocktail trovati:")
         for cocktail in infoCocktail["drinks"]:
